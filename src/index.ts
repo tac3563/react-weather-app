@@ -5,7 +5,12 @@ const forecastQuery = "forecast.json";
 const city = "london";
 
 interface WeatherData {
-  currentTempC: string;
+  currentTempC: number;
+  minTempC: number;
+  maxTempC: number;
+  uvIndex: number;
+  rainfall: number;
+  conditions: string;
 }
 async function getData(): Promise<WeatherData> {
   const currentResponse = await fetch(
@@ -16,9 +21,6 @@ async function getData(): Promise<WeatherData> {
     throw new Error("fetching weather data failed");
   }
   const data = await currentResponse.json();
-
-  console.log(data);
-  console.log(data.forecast.forecastday[0].day);
 
   const weatherData = {
     currentTempC: data.current.temp_c,
