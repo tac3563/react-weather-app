@@ -3,8 +3,10 @@ import HomepageHeader from "./HompageHeader";
 function App() {
   return (
     <>
-      <div id="app">
-        <HomepageHeader />
+      <div id="app-wrapper">
+        <div id="app">
+          <HomepageHeader />
+        </div>
       </div>
     </>
   );

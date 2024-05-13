@@ -1,13 +1,80 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
 body {
-  min-height: 100vh;
+  font-family: "Inter", sans-serif;
+  color: white;
+  background-color: #a499c0;
+
+  #root {
+    min-height: 100vh;
+    display: flex;
+  }
+
+  #app-wrapper {
+    background: url(/iphone-background.png) center no-repeat;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 440px;
+    aspect-ratio: 440 / 887;
+    width: 100%;
+    margin: auto;
+    height: auto;
+  }
 
   #app {
+    background: url(/home-bg.svg) center no-repeat;
     border-radius: 44px;
     margin: 1em auto;
     max-width: 390px;
     width: 100%;
     height: auto;
     aspect-ratio: 390 / 844;
-    background: url(/home-bg.svg);
+    z-index: -1;
+  }
+
+  .homepage-header-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 5em;
+    font-size: 1.25rem;
+    line-height: calc(24 / 20);
+    font-weight: 600;
+
+    .weather-location {
+      font-size: 2.125rem;
+      line-height: calc(41 / 34);
+      font-weight: 400;
+    }
+
+    .weather-temp {
+      font-size: 6rem;
+      line-height: calc(70 / 96);
+      margin: 12px 0;
+      font-weight: 300;
+    }
+
+    .weather-conditions {
+      color: #ebebf5;
+      opacity: 0.6;
+    }
+
+    .weather-temp-high-low {
+      display: flex;
+      gap: 0.5em;
+    }
+
+    .house-graphic {
+      width: 100%;
+      height: auto;
+      margin: 1.2em auto 0 auto;
+    }
   }
 }

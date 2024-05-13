@@ -5,8 +5,12 @@ export default function HomepageHeader() {
 
   useEffect(() => {
     async function fetchWeatherData() {
-      const fetchedData = await getData();
-      setWeatherData(fetchedData);
+      try {
+        const fetchedData = await getData();
+        setWeatherData(fetchedData);
+      } catch {
+        Error("Weather request failed");
+      }
     }
 
     fetchWeatherData();
@@ -16,12 +20,23 @@ export default function HomepageHeader() {
     <>
       <div className="homepage-header-container">
         <h2 className="weather-location">{city}</h2>
-        <h2 className="weather-temp">{weatherData?.currentTempC}C</h2>
+        <h2 className="weather-temp">
+          {Math.round(weatherData?.currentTempC)}&deg;
+        </h2>
         <p className="weather-conditions">{weatherData?.conditions}</p>
         <div className="weather-temp-high-low">
-          <p className="weather-temp-high">{weatherData?.maxTempC}</p>
-          <p className="weather-temp-low">{weatherData?.minTempC}</p>
+          <p className="weather-temp-high">
+            H:{Math.round(weatherData?.maxTempC)}&deg;
+          </p>
+          <p className="weather-temp-low">
+            L:{Math.round(weatherData?.minTempC)}&deg;
+          </p>
         </div>
+        <img
+          className="house-graphic"
+          src="/house-graphic.svg"
+          alt="image of a house"
+        />
       </div>
     </>
   );
