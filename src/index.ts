@@ -1,5 +1,5 @@
 // API Key:
-const weatherApiKey: string = "8ff15bcc1da04bcf811135607240505";
+const weatherApiKey = "8ff15bcc1da04bcf811135607240505";
 const baseUrl = "https://api.weatherapi.com/v1";
 const forecastQuery = "forecast.json";
 const city = "New York";
@@ -12,6 +12,7 @@ interface WeatherData {
   rainfall: number;
   conditions: string;
 }
+
 async function getData(): Promise<WeatherData> {
   const currentResponse = await fetch(
     `${baseUrl}/${forecastQuery}?key=${weatherApiKey}&q=${city}`
@@ -30,8 +31,6 @@ async function getData(): Promise<WeatherData> {
     rainfall: data.forecast.forecastday[0].day.totalprecip_mm,
     conditions: data.current.condition.text,
   };
-
-  console.log(data);
 
   return weatherData;
 }

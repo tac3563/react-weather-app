@@ -38,15 +38,27 @@ body {
     z-index: -1;
   }
 
-  .homepage-header-container {
+  .homepage-header__wrapper {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding-top: 5em;
+    padding-top: 0.5em;
     font-size: 1.25rem;
     line-height: calc(24 / 20);
     font-weight: 600;
+
+    .homepage-header__nav {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      padding: 2px 25px 0 35px;
+      margin-bottom: 5em;
+
+      .status-bar {
+        width: fit-content;
+      }
+    }
 
     .weather-location {
       font-size: 2.125rem;

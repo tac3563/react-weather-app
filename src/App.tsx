@@ -1,4 +1,5 @@
 import HomepageHeader from "./HompageHeader";
+import TabBar from "./TabBar";
 
 function App() {
   return (
@@ -6,6 +7,7 @@ function App() {
       <div id="app-wrapper">
         <div id="app">
           <HomepageHeader />
+          <TabBar />
         </div>
       </div>
     </>
