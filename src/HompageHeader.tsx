@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 
 export default function HomepageHeader() {
   const [weatherData, setWeatherData] = useState<WeatherData | null>(null);
-  const [time, setTime] = useState("N/A");
+  const [time, setTime] = useState("0");
 
   function updateTime() {
     const initialTime = new Date().toLocaleTimeString([], {
@@ -43,7 +43,8 @@ export default function HomepageHeader() {
           </div>
           <h2 className="weather-location">{city}</h2>
           <h2 className="weather-temp">
-            {Math.round(weatherData?.currentTempC ?? 0)}&deg;
+            {Math.round(weatherData?.currentTempC ?? 0)}
+            <span>&deg;</span>
           </h2>
           <p className="weather-conditions">{weatherData?.conditions}</p>
           <div className="weather-temp-high-low">
