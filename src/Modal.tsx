@@ -17,17 +17,17 @@ export default function Modal() {
     <>
       <div className="modal-container">
         <div className="modal-header">
-          <div className={isActive ? "show" : "hide"} onClick={toggleClass}>
+          <h3 className={isActive ? "show" : "hide"} onClick={toggleClass}>
             Hourly Forecast
-          </div>
-          <h2 className={isActive ? "show" : "hide"} onClick={toggleClass}>
+          </h3>
+          <h3 className={isActive ? "show" : "hide"} onClick={toggleClass}>
             Weekly Forecast
-          </h2>
-          <div
-            onClick={() => console.log("widget")}
-            className="modal-forcast-widget"
-          ></div>
+          </h3>
         </div>
+        <div
+          onClick={() => console.log("widget")}
+          className="modal-forcast-widget"
+        ></div>
       </div>
       <TabBar />
     </>
