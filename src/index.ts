@@ -2,7 +2,7 @@
 const weatherApiKey = "8ff15bcc1da04bcf811135607240505";
 const baseUrl = "https://api.weatherapi.com/v1";
 const forecastQuery = "forecast.json";
-const city = "Montreal";
+const city = "Leicester";
 
 interface WeatherData {
   currentTempC: number;

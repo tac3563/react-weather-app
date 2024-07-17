@@ -5,10 +5,13 @@ export default function HomepageHeader() {
   const [time, setTime] = useState("0");
 
   function updateTime() {
-    const initialTime = new Date().toLocaleTimeString([], {
-      hour: "2-digit",
-      minute: "2-digit",
-    });
+    const initialTime = new Date()
+      .toLocaleTimeString([], {
+        hour: "2-digit",
+        minute: "2-digit",
+        hour12: false,
+      })
+      .replace(/AM|PM/, "");
     setTime(initialTime);
   }
 
