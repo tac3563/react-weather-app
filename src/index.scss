@@ -86,7 +86,8 @@ body {
         height: 300px;
         border-radius: 44px 44px 0 0;
 
-        h3 {
+        .modal-hour,
+        .modal-week {
           font-size: var(--body-font-size);
           line-height: var(--body-line-height);
           color: rgba(235, 235, 245, 60%);

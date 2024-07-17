@@ -17,12 +17,18 @@ export default function Modal() {
     <>
       <div className="modal-container">
         <div className="modal-header">
-          <h3 className={isActive ? "show" : "hide"} onClick={toggleClass}>
+          <div
+            className={isActive ? "show modal-hour" : "hide"}
+            onClick={toggleClass}
+          >
             Hourly Forecast
-          </h3>
-          <h3 className={isActive ? "show" : "hide"} onClick={toggleClass}>
+          </div>
+          <div
+            className={isActive ? "show modal-week" : "hide"}
+            onClick={toggleClass}
+          >
             Weekly Forecast
-          </h3>
+          </div>
         </div>
         <div
           onClick={() => console.log("widget")}
