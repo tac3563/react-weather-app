@@ -72,33 +72,35 @@ body {
       // overflow: scroll;
       position: absolute;
       bottom: -75px;
-      z-index: -1;
+      z-index: 0;
+    }
+  }
 
-      .modal-header {
-        display: flex;
-        justify-content: space-between;
-        width: 100%;
-        flex: 1 0 auto;
-        max-width: 390px;
-        margin: auto;
-        padding: 0 15px;
-        background: linear-gradient(180deg, rgb(49, 51, 80), rgb(72, 45, 129));
-        height: 300px;
-        border-radius: 44px 44px 0 0;
+  .modal-header {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    flex: 1 0 auto;
+    max-width: 390px;
+    margin: auto;
+    padding: 0 15px;
+    background: linear-gradient(180deg, rgb(49, 51, 80), rgb(72, 45, 129));
+    height: 300px;
+    border-radius: 44px 44px 0 0;
+    z-index: 99;
 
-        .modal-hour,
-        .modal-week {
-          font-size: var(--body-font-size);
-          line-height: var(--body-line-height);
-          color: rgba(235, 235, 245, 60%);
-        }
-      }
+    .modal-hour,
+    .modal-week {
+      font-size: var(--body-font-size);
+      line-height: var(--body-line-height);
+      color: rgba(235, 235, 245, 60%);
+      cursor: pointer;
     }
   }
 
   .tab-bar-container {
     padding-top: 0.5em;
-    z-index: -1;
+    z-index: 0;
     position: absolute;
     bottom: 18px;
 

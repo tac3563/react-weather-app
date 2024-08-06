@@ -1,39 +1,37 @@
 import { useState } from "react";
 import TabBar from "./TabBar";
 
-// get hourly forecast data for today
-// loop through hourly forecast data
-// append the time, temp, and icon for each hour to the widget div.
-// do the same for weekly.
-// have hourly or weekly set to display none and then toggle show/hide depending on which forecast header is clicked.
 export default function Modal() {
-  const [isActive, setIsActive] = useState(false);
-  const toggleClass = () => {
-    console.log("clicked");
-    setIsActive(!isActive);
+  const modalForecasts: string[] = ["hourly", "weekly"];
+
+  const [activeForecast, setActiveForecast] = useState(modalForecasts[0]);
+
+  const setHourlyForecast = () => {
+    setActiveForecast(modalForecasts[0]);
+  };
+
+  const setWeeklyForecast = () => {
+    setActiveForecast(modalForecasts[1]);
   };
 
   return (
     <>
       <div className="modal-container">
         <div className="modal-header">
-          <div
-            className={isActive ? "show modal-hour" : "hide"}
-            onClick={toggleClass}
-          >
+          <div className="hourly-forecast" onClick={setHourlyForecast}>
             Hourly Forecast
+            {activeForecast === "hourly" && (
+              <p>The hourly forecast is active</p>
+            )}
           </div>
-          <div
-            className={isActive ? "show modal-week" : "hide"}
-            onClick={toggleClass}
-          >
+          <div className={"weekly-forecast"} onClick={setWeeklyForecast}>
             Weekly Forecast
+            {activeForecast === "weekly" && (
+              <p>The weekly forecast is active</p>
+            )}
           </div>
         </div>
-        <div
-          onClick={() => console.log("widget")}
-          className="modal-forcast-widget"
-        ></div>
+        <div className="modal-forecast-widget"></div>
       </div>
       <TabBar />
     </>
