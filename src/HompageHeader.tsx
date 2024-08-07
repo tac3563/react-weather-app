@@ -1,7 +1,9 @@
 import { useEffect, useState } from "react";
 
 export default function HomepageHeader() {
-  const [weatherData, setWeatherData] = useState<WeatherData | null>(null);
+  const [weatherData, setWeatherData] = useState<CurrentWeatherData | null>(
+    null
+  );
   const [time, setTime] = useState("0");
 
   function updateTime() {
@@ -22,7 +24,7 @@ export default function HomepageHeader() {
   useEffect(() => {
     async function fetchWeatherData() {
       try {
-        const fetchedData = await getData();
+        const fetchedData = await getCurrentWeatherData();
         setWeatherData(fetchedData);
       } catch {
         Error("Weather request failed");
