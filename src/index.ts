@@ -19,6 +19,13 @@ interface ForecastDayData {
   icon: string;
 }
 
+interface forecastWeekData {
+  forecastDay: string;
+  forcastDayMaxTempC: number;
+  forecastDayIcon: string;
+}
+
+// Current Weather:
 async function getCurrentWeatherData(): Promise<CurrentWeatherData> {
   const currentResponse = await fetch(
     `${baseUrl}/${forecastQuery}?key=${weatherApiKey}&q=${city}`
@@ -40,7 +47,33 @@ async function getCurrentWeatherData(): Promise<CurrentWeatherData> {
   return currentWeatherData;
 }
 
-async function getCurrentWeatherData(): Promise<ForecastDayData> {
+// Weekly Weather:
+async function getWeeklyWeatherData() {
+  const currentResponse = await fetch(
+    `${baseUrl}/${forecastQuery}?key=${weatherApiKey}&q=${city}&days=7`
+  );
+
+  if (!currentResponse.ok) {
+    throw new Error("fetching weather data failed");
+  }
+
+  const data = await currentResponse.json();
+  const forecastWeekData = data.forecast.forecastday;
+
+  forecastWeekData.forEach((day) => {
+    const forecastDayData: forecastWeekData = {
+      forecastDay: day.date,
+      forcastDayMaxTempC: day.day.maxtemp_c,
+      forecastDayIcon: day.day.condition.icon,
+    };
+    console.log(forecastDayData);
+  });
+
+  return forecastWeekData;
+}
+
+// Hourly Weather:
+async function getHourlyWeatherData(): Promise<ForecastDayData> {
   const currentResponse = await fetch(
     `${baseUrl}/${forecastQuery}?key=${weatherApiKey}&q=${city}`
   );
@@ -51,17 +84,16 @@ async function getCurrentWeatherData(): Promise<ForecastDayData> {
 
   const data = await currentResponse.json();
 
-  const forecastDayData: ForecastDayData[] =
-    data.forecast.forecastday[0].hour.map((hour: any) => ({
+  const forecastDayData: ForecastDayData =
+    data.forecast.forecastday[0].hour.map((hour) => ({
       time: hour.time,
       tempC: hour.temp_c,
       icon: hour.condition.icon,
     }));
 
-  console.log(forecastDayData);
-
   return forecastDayData;
 }
 
 getCurrentWeatherData();
-getCurrentWeatherData();
+getHourlyWeatherData();
+getWeeklyWeatherData();
