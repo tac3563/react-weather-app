@@ -66,10 +66,27 @@ async function getWeeklyWeatherData() {
       forcastDayMaxTempC: day.day.maxtemp_c,
       forecastDayIcon: day.day.condition.icon,
     };
+
+    const convertedDate = new Date(forecastDayData.forecastDay).toLocaleString(
+      "en-uk",
+      {
+        weekday: "long",
+      }
+    );
+
+    forecastDayData.forecastDay = convertedDate;
+
     console.log(forecastDayData);
+    return forecastDayData;
   });
 
-  return forecastWeekData;
+  // Convert date from weeklyForecast to a day of the week.
+  /*
+    1. Pass the date into a new Date object.
+    2. Convert the new object to local timezone using .LocaleString('en-uk', {weekday: 'long}).
+  */
+
+  // How can i do that when the date is saved in an object only accessible within a forEach loop?
 }
 
 // Hourly Weather:
