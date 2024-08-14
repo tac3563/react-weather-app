@@ -1,6 +1,7 @@
 import { useState } from "react";
 import TabBar from "./TabBar";
 import WeeklyForecast from "./WeeklyForecast";
+import HourlyForecast from "./HourlyForecast";
 
 export default function Modal() {
   const modalForecasts: string[] = ["hourly", "weekly"];
@@ -18,19 +19,20 @@ export default function Modal() {
   return (
     <>
       <div className="modal-container">
-        <div className="modal-header">
-          <div className="hourly-forecast" onClick={setHourlyForecast}>
-            Hourly Forecast
-            {activeForecast === "hourly" && (
-              <p>The hourly forecast is active</p>
-            )}
+        <div className="modal-wrapper">
+          <div className="modal-header">
+            <div className="hourly-forecast" onClick={setHourlyForecast}>
+              Hourly Forecast
+            </div>
+            <div className={"weekly-forecast"} onClick={setWeeklyForecast}>
+              Weekly Forecast
+            </div>
           </div>
-          <div className={"weekly-forecast"} onClick={setWeeklyForecast}>
-            Weekly Forecast
+          <div className="modal-forecast-widget">
+            {activeForecast === "hourly" && <HourlyForecast />}
             {activeForecast === "weekly" && <WeeklyForecast />}
           </div>
         </div>
-        <div className="modal-forecast-widget"></div>
       </div>
       <TabBar />
     </>

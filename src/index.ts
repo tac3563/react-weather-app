@@ -14,7 +14,7 @@ interface CurrentWeatherData {
 }
 
 interface ForecastDayData {
-  time: number;
+  time: string;
   tempC: number;
   icon: string;
 }
@@ -70,7 +70,7 @@ async function getWeeklyWeatherData(): Promise<ForecastWeekData[]> {
     const convertedDate = new Date(forecastDayData.forecastDay).toLocaleString(
       "en-uk",
       {
-        weekday: "long",
+        weekday: "short",
       }
     );
 
@@ -83,7 +83,7 @@ async function getWeeklyWeatherData(): Promise<ForecastWeekData[]> {
 }
 
 // Hourly Weather:
-async function getHourlyWeatherData(): Promise<ForecastDayData> {
+async function getHourlyWeatherData(): Promise<ForecastDayData[]> {
   const currentResponse = await fetch(
     `${baseUrl}/${forecastQuery}?key=${weatherApiKey}&q=${city}`
   );
@@ -94,14 +94,31 @@ async function getHourlyWeatherData(): Promise<ForecastDayData> {
 
   const data = await currentResponse.json();
 
-  const forecastDayData: ForecastDayData =
-    data.forecast.forecastday[0].hour.map((hour) => ({
+  const forecastHourlyData = data.forecast.forecastday[0].hour;
+
+  const hourlyData = forecastHourlyData.map((hour) => {
+    const forecastDayData: ForecastDayData = {
       time: hour.time,
       tempC: hour.temp_c,
       icon: hour.condition.icon,
-    }));
+    };
 
-  return forecastDayData;
+    const trimmedTime = forecastDayData.time.split(" ").slice(1).join(" ");
+
+    const convertedTime = new Date(
+      "1970-01-01T" + trimmedTime + "Z"
+    ).toLocaleTimeString("en-uk", {
+      timeZone: "UTC",
+      hour12: true,
+      hour: "numeric",
+    });
+
+    forecastDayData.time = convertedTime;
+
+    return forecastDayData;
+  });
+
+  return hourlyData;
 }
 
 getCurrentWeatherData();

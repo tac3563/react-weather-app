@@ -76,9 +76,9 @@ body {
     }
   }
 
-  .modal-header {
+  .modal-wrapper {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
     width: 100%;
     flex: 1 0 auto;
     max-width: 390px;
@@ -89,24 +89,39 @@ body {
     border-radius: 44px 44px 0 0;
     z-index: 99;
 
-    .hourly-forecast,
-    .weekly-forecast {
-      height: min-content;
-    }
-
-    .weekly-forecast-list {
+    .modal-header {
       display: flex;
       justify-content: space-between;
-      list-style: none;
-      width: 100%;
+      gap: 15px;
+      padding: 1em;
+
+      .hourly-forecast,
+      .weekly-forecast {
+        height: min-content;
+
+        .modal-hour,
+        .modal-week {
+          font-size: var(--body-font-size);
+          line-height: var(--body-line-height);
+          color: rgba(235, 235, 245, 60%);
+          cursor: pointer;
+        }
+      }
     }
 
-    .modal-hour,
-    .modal-week {
-      font-size: var(--body-font-size);
-      line-height: var(--body-line-height);
-      color: rgba(235, 235, 245, 60%);
-      cursor: pointer;
+    .modal-forecast-widget {
+      margin: 2.5em auto;
+
+      .weekly-forecast-list,
+      .hourly-forecast-list {
+        display: flex;
+        justify-content: space-between;
+        gap: 10px;
+        list-style: none;
+        width: 100%;
+        max-width: 390px;
+        overflow: scroll;
+      }
     }
   }
 
