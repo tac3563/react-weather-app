@@ -89,6 +89,18 @@ body {
     border-radius: 44px 44px 0 0;
     z-index: 99;
 
+    .hourly-forecast,
+    .weekly-forecast {
+      height: min-content;
+    }
+
+    .weekly-forecast-list {
+      display: flex;
+      justify-content: space-between;
+      list-style: none;
+      width: 100%;
+    }
+
     .modal-hour,
     .modal-week {
       font-size: var(--body-font-size);

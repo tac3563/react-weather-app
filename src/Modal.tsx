@@ -1,5 +1,6 @@
 import { useState } from "react";
 import TabBar from "./TabBar";
+import WeeklyForecast from "./WeeklyForecast";
 
 export default function Modal() {
   const modalForecasts: string[] = ["hourly", "weekly"];
@@ -26,9 +27,7 @@ export default function Modal() {
           </div>
           <div className={"weekly-forecast"} onClick={setWeeklyForecast}>
             Weekly Forecast
-            {activeForecast === "weekly" && (
-              <p>The weekly forecast is active</p>
-            )}
+            {activeForecast === "weekly" && <WeeklyForecast />}
           </div>
         </div>
         <div className="modal-forecast-widget"></div>

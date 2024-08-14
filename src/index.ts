@@ -19,9 +19,9 @@ interface ForecastDayData {
   icon: string;
 }
 
-interface forecastWeekData {
+interface ForecastWeekData {
   forecastDay: string;
-  forcastDayMaxTempC: number;
+  forecastDayMaxTempC: number;
   forecastDayIcon: string;
 }
 
@@ -48,7 +48,7 @@ async function getCurrentWeatherData(): Promise<CurrentWeatherData> {
 }
 
 // Weekly Weather:
-async function getWeeklyWeatherData() {
+async function getWeeklyWeatherData(): Promise<ForecastWeekData[]> {
   const currentResponse = await fetch(
     `${baseUrl}/${forecastQuery}?key=${weatherApiKey}&q=${city}&days=7`
   );
@@ -60,10 +60,10 @@ async function getWeeklyWeatherData() {
   const data = await currentResponse.json();
   const forecastWeekData = data.forecast.forecastday;
 
-  forecastWeekData.forEach((day) => {
-    const forecastDayData: forecastWeekData = {
+  const weeklyData = forecastWeekData.map((day) => {
+    const forecastDayData: ForecastWeekData = {
       forecastDay: day.date,
-      forcastDayMaxTempC: day.day.maxtemp_c,
+      forecastDayMaxTempC: day.day.maxtemp_c,
       forecastDayIcon: day.day.condition.icon,
     };
 
@@ -76,17 +76,10 @@ async function getWeeklyWeatherData() {
 
     forecastDayData.forecastDay = convertedDate;
 
-    console.log(forecastDayData);
     return forecastDayData;
   });
 
-  // Convert date from weeklyForecast to a day of the week.
-  /*
-    1. Pass the date into a new Date object.
-    2. Convert the new object to local timezone using .LocaleString('en-uk', {weekday: 'long}).
-  */
-
-  // How can i do that when the date is saved in an object only accessible within a forEach loop?
+  return weeklyData;
 }
 
 // Hourly Weather:
