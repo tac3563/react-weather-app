@@ -23,13 +23,18 @@ export default function HourlyForecast() {
       <ul className="hourly-forecast-list">
         {hourlyForecast?.map((day, index) => (
           <li key={index}>
-            <p id={`day-${index}`}>{day.time}</p>
+            <p className="forecast-time" id={`day-${index}`}>
+              {day.time}
+            </p>
             <img
               src={day.icon}
               alt={`Icon for ${day.icon}`}
               id={`day-${index}`}
             />
-            <p id={`day-${index}`}>{day.tempC}</p>
+            <p className="forecast-hour-max-temp" id={`day-${index}`}>
+              {Math.round(day.tempC)}
+              <span>&deg;</span>
+            </p>
           </li>
         ))}
       </ul>

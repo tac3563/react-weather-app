@@ -98,29 +98,73 @@ body {
       .hourly-forecast,
       .weekly-forecast {
         height: min-content;
+        cursor: pointer;
 
         .modal-hour,
         .modal-week {
           font-size: var(--body-font-size);
           line-height: var(--body-line-height);
           color: rgba(235, 235, 245, 60%);
-          cursor: pointer;
         }
       }
     }
 
     .modal-forecast-widget {
-      margin: 2.5em auto;
+      margin: 0 auto;
+      display: flex;
+      width: 100%;
 
       .weekly-forecast-list,
       .hourly-forecast-list {
         display: flex;
-        justify-content: space-between;
-        gap: 10px;
+        gap: 16px;
         list-style: none;
         width: 100%;
         max-width: 390px;
         overflow: scroll;
+        flex: 0 1 auto;
+        justify-content: center;
+
+        li {
+          background: #48319d33;
+          border: solid 1px #ffffff33;
+          border-radius: 30px;
+          padding: 16px 8px;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          font-size: 14px;
+
+          .forecast-day-max-temp,
+          .forecast-hour-max-temp {
+            font-size: 21px;
+            padding: 16px 0 0 0;
+          }
+
+          .forecast-day,
+          .forecast-time {
+            padding: 0 0 12px 0;
+          }
+
+          img {
+            width: 32px;
+            height: 32px;
+            margin: 0 0 10px 0;
+          }
+        }
+      }
+
+      .hourly-forecast-list {
+        > li {
+          flex: 1 0 60px;
+        }
+      }
+
+      .weekly-forecast-list {
+        > li {
+          flex: 0 1 60px;
+        }
       }
     }
   }
@@ -135,10 +179,7 @@ body {
     .list-icon {
       position: absolute;
       top: 40%;
-
-      &:hover {
-        cursor: pointer;
-      }
+      cursor: pointer;
     }
 
     .map-icon {
