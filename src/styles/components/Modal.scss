@@ -1,0 +1,103 @@
+.modal-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  max-width: 390px;
+  height: 500px;
+  position: absolute;
+  bottom: -75px;
+  z-index: 0;
+
+  .modal-wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    flex: 1 0 auto;
+    max-width: 390px;
+    margin: auto;
+    padding: 0 15px;
+    background: linear-gradient(180deg, rgb(49, 51, 80), rgb(72, 45, 129));
+    height: 300px;
+    border-radius: 44px 44px 0 0;
+    z-index: 99;
+
+    .modal-header {
+      display: flex;
+      justify-content: space-between;
+      gap: 15px;
+      padding: 1em;
+
+      .hourly-forecast,
+      .weekly-forecast {
+        height: min-content;
+        cursor: pointer;
+
+        .modal-hour,
+        .modal-week {
+          font-size: var(--body-font-size);
+          line-height: var(--body-line-height);
+          color: rgba(235, 235, 245, 60%);
+        }
+      }
+    }
+
+    .modal-forecast-widget {
+      margin: 0 auto;
+      display: flex;
+      width: 100%;
+
+      .weekly-forecast-list,
+      .hourly-forecast-list {
+        display: flex;
+        gap: 16px;
+        list-style: none;
+        width: 100%;
+        max-width: 390px;
+        overflow: scroll;
+        flex: 0 1 auto;
+        justify-content: center;
+
+        li {
+          background: #48319d33;
+          border: solid 1px #ffffff33;
+          border-radius: 30px;
+          padding: 16px 8px;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          font-size: 14px;
+
+          .forecast-day-max-temp,
+          .forecast-hour-max-temp {
+            font-size: 21px;
+            padding: 16px 0 0 0;
+          }
+
+          .forecast-day,
+          .forecast-time {
+            padding: 0 0 12px 0;
+          }
+
+          img {
+            width: 32px;
+            height: 32px;
+            margin: 0 0 10px 0;
+          }
+        }
+      }
+
+      .hourly-forecast-list {
+        > li {
+          flex: 1 0 60px;
+        }
+      }
+
+      .weekly-forecast-list {
+        > li {
+          flex: 0 1 60px;
+        }
+      }
+    }
+  }
+}

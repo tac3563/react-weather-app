@@ -1,0 +1,21 @@
+.tab-bar-container {
+  padding-top: 0.5em;
+  z-index: 0;
+  position: absolute;
+  bottom: 18px;
+
+  .map-icon,
+  .list-icon {
+    position: absolute;
+    top: 40%;
+    cursor: pointer;
+  }
+
+  .map-icon {
+    left: 30px;
+  }
+
+  .list-icon {
+    right: 30px;
+  }
+}

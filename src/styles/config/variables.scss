@@ -1,0 +1,58 @@
+:root {
+  /* Typography:  */
+  --body-font-size: 0.938rem;
+  --body-line-height: calc(20 / 15);
+  --font-family-regular: "Inter", sans-serif;
+
+  /* Colours:  */
+  --primary-light-colour: #000000;
+  --secondary-light-colour: rgb(60, 60, 67, 60%);
+  --tertiary-light-colour: rgb(60, 60, 67, 30%);
+  --quaternary-light-colour: rgb(60, 60, 67, 18%);
+
+  --primary-dark-colour: #ffffff;
+  --secondary-dark-colour: rgb(235, 235, 245, 60%);
+  --tertiary-dark-colour: rgb(235, 235, 245, 30%);
+  --quaternary-dark-colour: rgb(235, 235, 245, 18%);
+
+  --weather-colour-linear-light: linear-gradient(
+    167.57deg,
+    #2e335a -4.68%,
+    #1c1b33 95.45%
+  );
+  --weather-colour-linear-dark: linear-gradient(
+    90deg,
+    #5936b4 0%,
+    #362a84 103.55%
+  );
+  --weather-colour-linear-pink: linear-gradient(
+    90deg,
+    #427bd1 1.95%,
+    #c159ec 101.56%
+  );
+  --weather-colour-linear-blue: linear-gradient(
+    180deg,
+    #aec9ff 0%,
+    #aec9ff 54.51%,
+    #083072 54.52%
+  );
+  --weather-colour-radial: radial-gradient(
+    73.23% 106% at 34.94% 108.33%,
+    #f7cbfd 0%,
+    #7758d1 100%
+  );
+  --weather-colour-angular: conic-gradient(
+    from 180deg at 50% 50%,
+    #612fab -90.71deg,
+    rgba(97, 47, 171, 0) 50.02deg,
+    #612fab 129.55deg,
+    rgba(97, 47, 171, 0) 226.06deg,
+    #612fab 269.29deg,
+    rgba(97, 47, 171, 0) 410.02deg
+  );
+
+  --weather-color-solid-purple: #48319d;
+  --weather-color-solid-navy: #1f1d47;
+  --weather-color-solid-pink: #c427fb;
+  --weather-color-solid-pale-pink: #e0d9ff;
+}
