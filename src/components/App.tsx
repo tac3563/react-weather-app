@@ -1,19 +1,21 @@
-import HomepageHeader from "./HompageHeader";
-import Modal from "./Modal";
+import Home from "./Home";
+import WeatherDetails from "./WeatherDetails";
+import Widgets from "./Widgets";
+import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 
 function App() {
   return (
-    <>
+    <Router>
       <div id="app-wrapper">
         <div id="app">
-          <div className="home-bg-wrapper"></div>
-          <div className="app-content-container">
-            <HomepageHeader />
-            <Modal />
-          </div>
+          <Routes>
+            <Route path="/" element={<Home />}></Route>
+            <Route path="/details" element={<WeatherDetails />}></Route>
+            <Route path="/search" element={<Widgets />}></Route>
+          </Routes>
         </div>
       </div>
-    </>
+    </Router>
   );
 }
 
