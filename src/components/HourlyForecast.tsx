@@ -1,9 +1,13 @@
 import { useEffect, useState } from "react";
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
 
 export default function HourlyForecast() {
   const [hourlyForecast, setHourlyForecast] = useState<
     ForecastDayData[] | null
   >(null);
+
+  gsap.registerPlugin(useGSAP);
 
   useEffect(() => {
     async function fetchWeatherData() {
