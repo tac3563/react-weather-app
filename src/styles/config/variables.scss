@@ -11,43 +11,43 @@
   --quaternary-light-colour: rgb(60, 60, 67, 18%);
 
   --primary-dark-colour: #ffffff;
-  --secondary-dark-colour: rgb(235, 235, 245, 60%);
+  --secondary-dark-colour: rgba(235, 235, 245, 0.6);
   --tertiary-dark-colour: rgb(235, 235, 245, 30%);
   --quaternary-dark-colour: rgb(235, 235, 245, 18%);
 
   --weather-colour-linear-light: linear-gradient(
     167.57deg,
-    #2e335a -4.68%,
-    #1c1b33 95.45%
+    rgb(46, 51, 90) -4.68%,
+    rgb(28, 27, 51) 95.45%
   );
   --weather-colour-linear-dark: linear-gradient(
     90deg,
-    #5936b4 0%,
-    #362a84 103.55%
+    rgb(89, 54, 180) 0%,
+    rgb(54, 42, 132) 103.55%
   );
   --weather-colour-linear-pink: linear-gradient(
     90deg,
-    #427bd1 1.95%,
-    #c159ec 101.56%
+    rgb(66, 123, 209) 1.95%,
+    rgb(193, 89, 236) 101.56%
   );
   --weather-colour-linear-blue: linear-gradient(
     180deg,
-    #aec9ff 0%,
-    #aec9ff 54.51%,
-    #083072 54.52%
+    rgb(174, 201, 255) 0%,
+    rgb(174, 201, 255) 54.51%,
+    rgb(8, 48, 114) 54.52%
   );
   --weather-colour-radial: radial-gradient(
     73.23% 106% at 34.94% 108.33%,
-    #f7cbfd 0%,
-    #7758d1 100%
+    rgb(247, 203, 253) 0%,
+    rgb(119, 88, 209) 100%
   );
   --weather-colour-angular: conic-gradient(
     from 180deg at 50% 50%,
-    #612fab -90.71deg,
+    rgb(97, 47, 171) -90.71deg,
     rgba(97, 47, 171, 0) 50.02deg,
-    #612fab 129.55deg,
+    rgb(97, 47, 171) 129.55deg,
     rgba(97, 47, 171, 0) 226.06deg,
-    #612fab 269.29deg,
+    rgb(97, 47, 171) 269.29deg,
     rgba(97, 47, 171, 0) 410.02deg
   );
 

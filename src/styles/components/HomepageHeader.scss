@@ -74,8 +74,7 @@ header {
   }
 
   .weather-conditions {
-    color: #ebebf5;
-    opacity: 0.6;
+    color: var(--secondary-dark-colour);
   }
 
   .weather-temp-high-low {
