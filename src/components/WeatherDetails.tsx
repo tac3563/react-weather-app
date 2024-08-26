@@ -2,10 +2,10 @@ import { Link } from "react-router-dom";
 
 export default function WeatherDetails() {
   return (
-    <>
-      <Link to="/">
+    <Link className="weather-details-router" to="/">
+      <div className="weather-details-container">
         <p>{`< Weather`}</p>
-      </Link>
-    </>
+      </div>
+    </Link>
   );
 }

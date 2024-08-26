@@ -19,7 +19,11 @@ export default function TabBar() {
             />
           </svg>
         </Link>
-        <img className="tab-bar-background" src="/src\assets\tab-bar.png" alt="" />
+        <img
+          className="tab-bar-background"
+          src="/src\images\tab-bar.png"
+          alt=""
+        />
         <Link to="/details">
           <svg
             className="list-icon"

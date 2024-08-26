@@ -2,36 +2,36 @@ body {
   font-family: var(--font-family-regular);
   color: var(--primary-dark-colour);
   background-color: var(--weather-color-solid-pale-pink);
-}
 
-.app-content-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
-  position: relative;
-}
+  #root {
+    min-height: 100vh;
+    display: flex;
 
-#root {
-  min-height: 100vh;
-  display: flex;
-}
+    #app-wrapper {
+      width: 100%;
+      margin: auto;
+      height: auto;
+      z-index: 99999;
 
-#app-wrapper {
-  width: 100%;
-  margin: auto;
-  height: auto;
-  z-index: 99999;
-}
+      #app {
+        background: url(/src/images/iphone-background.png) center no-repeat;
+        background-size: cover;
+        max-width: 440px;
+        aspect-ratio: 440 / 887;
+        width: 100%;
+        margin: auto;
+        height: auto;
+        z-index: 99999;
 
-#app {
-  background: url(/iphone-background.png) center no-repeat;
-  background-size: cover;
-  max-width: 440px;
-  aspect-ratio: 440 / 887;
-  width: 100%;
-  margin: auto;
-  height: auto;
-  z-index: 99999;
+        .app-content-container {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          height: 100%;
+          position: relative;
+        }
+      }
+    }
+  }
 }

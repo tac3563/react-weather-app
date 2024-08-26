@@ -41,7 +41,7 @@ export default function HomepageHeader() {
           <div className="homepage-header__nav">
             <div className="current-time">{time}</div>
             <img
-              src="/src\assets\status-bar.svg"
+              src="/src\images\status-bar.svg"
               alt=""
               className="status-bar"
             />
@@ -62,7 +62,7 @@ export default function HomepageHeader() {
           </div>
           <img
             className="house-graphic"
-            src="/house-graphic.svg"
+            src="/src/images/house-graphic.svg"
             alt="image of a house"
           />
         </div>

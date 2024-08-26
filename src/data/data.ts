@@ -60,6 +60,8 @@ async function getWeeklyWeatherData(): Promise<ForecastWeekData[]> {
   const data = await currentResponse.json();
   const forecastWeekData = data.forecast.forecastday;
 
+  console.log(forecastWeekData);
+
   const weeklyData = forecastWeekData.map((day) => {
     const forecastDayData: ForecastWeekData = {
       forecastDay: day.date,
