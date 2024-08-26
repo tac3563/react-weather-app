@@ -1,3 +1,5 @@
+import WeatherDetails from "../components/WeatherDetails";
+
 // TODO: Refactor separate api calls to reduce duplication between the two fetch functions:
 const weatherApiKey = "8ff15bcc1da04bcf811135607240505";
 const baseUrl = "https://api.weatherapi.com/v1";
@@ -60,8 +62,6 @@ async function getWeeklyWeatherData(): Promise<ForecastWeekData[]> {
   const data = await currentResponse.json();
   const forecastWeekData = data.forecast.forecastday;
 
-  console.log(forecastWeekData);
-
   const weeklyData = forecastWeekData.map((day) => {
     const forecastDayData: ForecastWeekData = {
       forecastDay: day.date,
@@ -123,6 +123,62 @@ async function getHourlyWeatherData(): Promise<ForecastDayData[]> {
   return hourlyData;
 }
 
+// Weather Details Hour Data:
+async function getWeatherDetailsHourData() {
+  const currentResponse = await fetch(
+    `${baseUrl}/${forecastQuery}?key=${weatherApiKey}&q=${city}&days=7`
+  );
+
+  if (!currentResponse.ok) {
+    throw new Error("fetching weather data failed");
+  }
+
+  const data = await currentResponse.json();
+  const forecastWeekData = data.forecast.forecastday[0].hour;
+  const fetchedWeatherDetailsHourData = forecastWeekData.map((hour) => {
+    const weatherDetailsHourData = {
+      windMph: hour.wind_mph,
+      rainMm: hour.precip_mm,
+      feelsLike: hour.feelslike_c,
+      windChill: hour.windchill_c,
+      humidity: hour.humidity,
+      visibilityKm: hour.vis_km,
+      pressureIn: hour.pressure_in,
+    };
+
+    console.log(weatherDetailsHourData);
+    return weatherDetailsHourData;
+  });
+  return fetchedWeatherDetailsHourData;
+}
+
+// Weather Details Day Data:
+async function getWeatherDetailsDayData() {
+  const currentResponse = await fetch(
+    `${baseUrl}/${forecastQuery}?key=${weatherApiKey}&q=${city}&days=7`
+  );
+
+  if (!currentResponse.ok) {
+    throw new Error("fetching weather data failed");
+  }
+
+  const data = await currentResponse.json();
+  const forecastWeekData = data.forecast.forecastday;
+
+  const fetchedWeatherDetailsDayData = forecastWeekData.map((day) => {
+    const weatherDetailsDayData = {
+      uvIndex: day.day.uv,
+      sunrise: day.astro.sunrise,
+    };
+
+    return weatherDetailsDayData;
+  });
+
+  return fetchedWeatherDetailsDayData;
+}
+
 getCurrentWeatherData();
 getHourlyWeatherData();
 getWeeklyWeatherData();
+getWeatherDetailsHourData();
+getWeatherDetailsDayData();
