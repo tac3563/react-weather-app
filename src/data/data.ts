@@ -1,5 +1,3 @@
-import WeatherDetails from "../components/WeatherDetails";
-
 // TODO: Refactor separate api calls to reduce duplication between the two fetch functions:
 const weatherApiKey = "8ff15bcc1da04bcf811135607240505";
 const baseUrl = "https://api.weatherapi.com/v1";
@@ -135,6 +133,21 @@ async function getWeatherDetailsHourData() {
 
   const data = await currentResponse.json();
   const forecastWeekData = data.forecast.forecastday[0].hour;
+
+  const currentDate = new Date();
+  const currentHour = currentDate.getHours().toString();
+
+  function trimTime(forecast) {
+    forecast.time = forecast.time.match(/\s(\d{2})/)[1];
+  }
+  forecastWeekData.map(trimTime);
+
+  function checkHours(forecast) {
+    return forecast.time === currentHour;
+  }
+
+  const filteredArray = forecastWeekData.filter(checkHours);
+
   const fetchedWeatherDetailsHourData = forecastWeekData.map((hour) => {
     const weatherDetailsHourData = {
       windMph: hour.wind_mph,
@@ -146,7 +159,6 @@ async function getWeatherDetailsHourData() {
       pressureIn: hour.pressure_in,
     };
 
-    console.log(weatherDetailsHourData);
     return weatherDetailsHourData;
   });
   return fetchedWeatherDetailsHourData;
