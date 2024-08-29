@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { getWeeklyWeatherData, ForecastWeekData } from "./../data/forecastData";
 
 export default function WeeklyForecast() {
   const [weeklyForecast, setWeeklyForecast] = useState<

@@ -1,10 +1,17 @@
 import { useEffect, useState } from "react";
+import {
+  getCurrentWeatherData,
+  CurrentWeatherData,
+} from "../data/currentWeatherData";
 
 export default function HomepageHeader() {
   const [weatherData, setWeatherData] = useState<CurrentWeatherData | null>(
     null
   );
   const [time, setTime] = useState("0");
+
+  //TODO: make the city variable dynamic
+  const city = "Leicester";
 
   function updateTime() {
     const initialTime = new Date()

@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
+import { getHourlyWeatherData, ForecastDayData } from "./../data/forecastData";
 
 export default function HourlyForecast() {
   const [hourlyForecast, setHourlyForecast] = useState<
