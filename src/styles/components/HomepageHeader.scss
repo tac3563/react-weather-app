@@ -1,6 +1,7 @@
 header {
   position: absolute;
   top: 30px;
+  width: 100%;
 }
 
 .home-bg-wrapper {
@@ -14,11 +15,6 @@ header {
   padding-top: 1em;
   position: absolute;
   z-index: -1;
-}
-
-header {
-  position: absolute;
-  top: 30px;
 }
 
 .home-bg-wrapper {
@@ -80,12 +76,5 @@ header {
   .weather-temp-high-low {
     display: flex;
     gap: 0.5em;
-  }
-
-  .house-graphic {
-    width: 100%;
-    height: auto;
-    margin: 1.2em auto 0 auto;
-    z-index: -1;
   }
 }

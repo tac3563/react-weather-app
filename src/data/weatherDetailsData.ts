@@ -15,7 +15,7 @@ interface WeatherDetailsDay {
   sunrise: number;
 }
 
-async function getWeatherDetailsHourData() {
+export async function getWeatherDetailsHourData() {
   const data = await fetchWeatherData();
   const forecastWeekData = data.forecast.forecastday[0].hour;
 
@@ -40,8 +40,6 @@ async function getWeatherDetailsHourData() {
       visibilityKm: hour.vis_km,
       pressureIn: hour.pressure_in,
     };
-
-    console.log(weatherDetailsHourData);
 
     return weatherDetailsHourData;
   });

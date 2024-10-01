@@ -30,6 +30,13 @@ body {
           align-items: center;
           height: 100%;
           position: relative;
+
+          .house-graphic {
+            width: 100%;
+            height: auto;
+            margin: 11em auto 0 auto;
+            z-index: -1;
+          }
         }
       }
     }

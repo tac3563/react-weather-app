@@ -7,6 +7,11 @@ export default function Home() {
       <div className="home-bg-wrapper"></div>
       <div className="app-content-container">
         <HomepageHeader />
+        <img
+          className="house-graphic"
+          src="/src/images/house-graphic.svg"
+          alt="image of a house"
+        />
         <Modal />
       </div>
     </>

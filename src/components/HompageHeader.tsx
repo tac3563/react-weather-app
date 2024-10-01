@@ -67,11 +67,6 @@ export default function HomepageHeader() {
               L:{Math.round(weatherData?.minTempC ?? 0)}&deg;
             </p>
           </div>
-          <img
-            className="house-graphic"
-            src="/src/images/house-graphic.svg"
-            alt="image of a house"
-          />
         </div>
       </header>
     </>
