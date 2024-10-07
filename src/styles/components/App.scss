@@ -6,6 +6,7 @@ body {
   #root {
     min-height: 100vh;
     display: flex;
+    overflow-y: hidden;
 
     #app-wrapper {
       width: 100%;
