@@ -23,13 +23,23 @@ export default function HourlyForecast() {
     fetchWeatherData();
   }, []);
 
+  let initialTime = new Date().toLocaleTimeString([], {
+    hour: "2-digit",
+    hour12: true,
+  });
+
+  initialTime = initialTime.substring(1);
+
   return (
     <>
       <ul className="hourly-forecast-list">
         {hourlyForecast?.map((day, index) => (
-          <li key={index}>
+          <li
+            className={day.time === initialTime ? "active" : undefined}
+            key={index}
+          >
             <p className="forecast-time" id={`day-${index}`}>
-              {day.time}
+              {day.time === initialTime ? "Now" : day.time}
             </p>
             <img
               src={day.icon}

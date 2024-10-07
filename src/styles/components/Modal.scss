@@ -81,6 +81,10 @@
           align-items: center;
           font-size: 14px;
 
+          &.active {
+            background-color: #48319d;
+          }
+
           .forecast-day-max-temp,
           .forecast-hour-max-temp {
             font-size: 20px;
