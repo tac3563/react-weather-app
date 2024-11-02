@@ -9,7 +9,7 @@ export default function Home() {
         <HomepageHeader />
         <img
           className="house-graphic"
-          src="/src/images/house-graphic.svg"
+          src="/src/images/house-graphic.webp"
           alt="image of a house"
         />
         <Modal />
