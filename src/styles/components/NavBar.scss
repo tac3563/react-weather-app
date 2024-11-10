@@ -2,7 +2,14 @@
   padding-top: 0.5em;
   z-index: 0;
   position: absolute;
-  bottom: 18px;
+  border-radius: 0 0 44px 44px;
+  bottom: 0;
+  width: 390px;
+  height: 78px;
+  margin-bottom: 20px;
+  background: #2a3040;
+  border-top: 0.4px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0px 0px 2px rgba(255, 255, 255, 0.4);
 
   .tab-bar-background {
     border-radius: 0 0 42px 42px;
@@ -12,25 +19,15 @@
   .map-icon,
   .list-icon {
     position: absolute;
-    top: 40%;
+    top: 5%;
     cursor: pointer;
-
-    path {
-      transition: fill ease-in-out 0.3s;
-    }
-
-    &:hover {
-      path {
-        fill: var(--weather-color-solid-pink);
-      }
-    }
   }
 
   .map-icon {
-    left: 30px;
+    left: 10px;
   }
 
   .list-icon {
-    right: 30px;
+    right: 10px;
   }
 }
