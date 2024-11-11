@@ -7,13 +7,12 @@ header {
 .home-bg-wrapper {
   background: url(/src/images/home-dark-cloud-bg.webp) center no-repeat;
   background-size: contain;
-  border-radius: 44px;
-  margin: 0 0 0 25px;
-  max-width: 390px;
+  border-radius: 75px;
+  margin: 0 0 0 20px;
+  max-width: 400px;
   width: 100%;
   height: auto;
-  aspect-ratio: 390 / 844;
-  padding-top: 1em;
+  aspect-ratio: 430 / 956;
   position: absolute;
   z-index: -1;
 }
