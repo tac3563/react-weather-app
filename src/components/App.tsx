@@ -1,6 +1,6 @@
 import Home from "./Home";
 import WeatherDetails from "./WeatherDetails";
-import Widgets from "./Widgets";
+import Widgets from "./Search";
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 
 function App() {

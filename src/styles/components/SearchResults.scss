@@ -1,0 +1,50 @@
+.search-results-container {
+  .search-result {
+    display: flex;
+    justify-content: space-between;
+    gap: 18px;
+    width: 100%;
+    min-height: 117px;
+    margin: 12px 0;
+    background: url(/src/images/cloudy-day-result-card.png) center/cover
+      no-repeat;
+    padding: 16px;
+    border-radius: 16px;
+
+    .search-result-left-col,
+    .search-result-right-col {
+      display: flex;
+      flex-direction: column;
+
+      .search-result-temp-range {
+        display: flex;
+        gap: 8px;
+      }
+    }
+
+    .search-result-left-col {
+      .search-result-location {
+        font-size: 25px;
+        font-weight: bold;
+      }
+      .search-result-time,
+      .search-result-condition {
+        font-size: 16px;
+      }
+
+      .search-result-condition {
+        margin-top: auto;
+      }
+    }
+
+    .search-result-right-col {
+      justify-content: space-between;
+
+      .search-result-temp {
+        font-size: 53px;
+        line-height: 1;
+        font-weight: bold;
+      }
+    }
+  }
+}
