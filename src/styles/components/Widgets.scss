@@ -1,0 +1,39 @@
+.search-page-container {
+  background-color: black;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  left: 23px;
+  right: 20px;
+  top: 16px;
+  bottom: 20px;
+  border-radius: 44px;
+  width: 394px;
+  height: 856px;
+  padding: 20px 0;
+
+  .search-page-wrapper {
+    padding: 0 20px;
+
+    h2 {
+      font-size: 37px;
+      font-weight: bold;
+      margin-bottom: 8px;
+    }
+
+    input {
+      width: 100%;
+      padding: 8px;
+      min-height: 40px;
+      border-radius: 10px;
+      background-color: #191919;
+      font-weight: 400;
+      font-size: 19px;
+      line-height: 23px;
+      color: #ffffff;
+      opacity: 0.5;
+      border: 1px solid #000000;
+      text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    }
+  }
+}

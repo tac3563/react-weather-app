@@ -1,10 +1,12 @@
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
+import SearchBar from "./SearchBar";
+import StatusBar from "./StatusBar";
+
 export default function Widgets() {
   return (
-    <>
-      <Link to="/">
-        <p>{`< Weather`}</p>
-      </Link>
-    </>
+    <div className="search-page-container">
+      <StatusBar />
+      <SearchBar />
+    </div>
   );
 }

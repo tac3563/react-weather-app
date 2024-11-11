@@ -1,0 +1,14 @@
+.homepage-header__nav {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0 25px 0 35px;
+  margin-bottom: 3em;
+  font-size: 1.25rem;
+  line-height: calc(24 / 20);
+  font-weight: 600;
+
+  .status-bar {
+    width: 77px;
+  }
+}

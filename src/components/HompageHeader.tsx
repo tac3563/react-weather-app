@@ -3,30 +3,15 @@ import {
   getCurrentWeatherData,
   CurrentWeatherData,
 } from "../data/currentWeatherData";
+import StatusBar from "./StatusBar";
 
 export default function HomepageHeader() {
   const [weatherData, setWeatherData] = useState<CurrentWeatherData | null>(
     null
   );
-  const [time, setTime] = useState("0");
 
   //TODO: make the city variable dynamic
   const city = "Leicester";
-
-  function updateTime() {
-    const initialTime = new Date()
-      .toLocaleTimeString([], {
-        hour: "2-digit",
-        minute: "2-digit",
-        hour12: false,
-      })
-      .replace(/AM|PM/, "");
-    setTime(initialTime);
-  }
-
-  useEffect(() => {
-    setInterval(() => updateTime(), 1000);
-  }, []);
 
   useEffect(() => {
     async function fetchWeatherData() {
@@ -45,14 +30,7 @@ export default function HomepageHeader() {
     <>
       <header>
         <div className="homepage-header__wrapper">
-          <div className="homepage-header__nav">
-            <div className="current-time">{time}</div>
-            <img
-              src="/src\images\status-bar.svg"
-              alt=""
-              className="status-bar"
-            />
-          </div>
+          <StatusBar />
           <h2 className="weather-location">{city}</h2>
           <h2 className="weather-temp">
             {Math.round(weatherData?.currentTempC ?? 0)}
