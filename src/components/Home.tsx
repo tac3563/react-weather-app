@@ -1,4 +1,4 @@
-import HomepageHeader from "./HompageHeader";
+import HomepageHeader from "./HomepageHeader";
 import ForecastWidgets from "./ForecastWidgets";
 
 export default function Home() {

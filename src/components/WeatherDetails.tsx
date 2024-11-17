@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { getWeatherDetailsHourData } from "../data/weatherDetailsData";
-import HomepageHeader from "./HompageHeader";
+import HomepageHeader from "./HomepageHeader";
 
 export default function WeatherDetails() {
   const [hourlyWeatherDetails, setHourWeatherDetails] = useState([]);
