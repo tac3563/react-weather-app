@@ -1,6 +1,6 @@
 import Home from "./Home";
 import WeatherDetails from "./WeatherDetails";
-import Widgets from "./Search";
+import Search from "./Search";
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 
 function App() {
@@ -11,7 +11,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />}></Route>
             <Route path="/details" element={<WeatherDetails />}></Route>
-            <Route path="/search" element={<Widgets />}></Route>
+            <Route path="/search" element={<Search />}></Route>
           </Routes>
         </div>
       </div>

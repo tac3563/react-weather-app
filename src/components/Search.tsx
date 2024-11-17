@@ -4,8 +4,9 @@ import SearchLocations from "./SearchLocations";
 import SearchResults from "./SearchResults";
 import StatusBar from "./StatusBar";
 
-export default function Widgets() {
+export default function Search() {
   const [isSearching, setIsSearching] = useState(false);
+  const [suggestedLocations, setSuggestedLocations] = useState([]);
 
   function addIsSearching() {
     setIsSearching(true);
@@ -13,6 +14,7 @@ export default function Widgets() {
 
   function clearIsSearching() {
     setIsSearching(false);
+    setSuggestedLocations([]);
   }
 
   return (
@@ -20,11 +22,14 @@ export default function Widgets() {
       <div className="search-page-wrapper">
         <StatusBar />
         <SearchBar
+          setSuggestedLocations={setSuggestedLocations}
           addIsSearching={addIsSearching}
           clearIsSearching={clearIsSearching}
         />
         {!isSearching && <SearchResults />}
-        {isSearching && <SearchLocations />}
+        {isSearching && (
+          <SearchLocations suggestedLocations={suggestedLocations} />
+        )}
       </div>
     </div>
   );
