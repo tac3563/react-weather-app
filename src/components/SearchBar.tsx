@@ -9,12 +9,7 @@ import { useState } from "react";
   6. When a user clicks on the suggested location, save that location to the city state and then route to the homepage with a new fetch request from fetchWeatherData() function but add the Add/Cancel component.{City} will be used in the API call which is why the city local state needs to be updated to the suggestedLocation.
   7. When 'Add' is clicked, route back to the search page but add that location to the pinnedLocations array.
 
-
   Geocoding API example call: http://api.openweathermap.org/geo/1.0/direct?q={city},{state code},{country code}&limit={limit}&appid={API key}
-
-  const limit = 15
-  setCity(suggestedLocation)
-
 */
 
 export default function SearchBar({ addIsSearching, clearIsSearching }) {
@@ -33,6 +28,28 @@ export default function SearchBar({ addIsSearching, clearIsSearching }) {
     setFocused(false);
   };
 
+  const clearSearch = () => {
+    setCity("");
+    setFocused(false);
+    clearIsSearching();
+  };
+
+  async function fetchSuggestedLocations(city) {
+    const weatherApiKey = "51a3f77301fe0e11df19290faedd2a16";
+    const limit = 15;
+
+    try {
+      const response = await fetch(
+        `http://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=${limit}&appid=${weatherApiKey}`
+      );
+      const data = await response.json();
+      console.log(data);
+      return data;
+    } catch {
+      throw new Error("Fetching suggested locations failed");
+    }
+  }
+
   return (
     <div className="search-bar-container">
       {!isFocused && <h2 className="search-page-title">Weather</h2>}
@@ -49,11 +66,12 @@ export default function SearchBar({ addIsSearching, clearIsSearching }) {
             const inputValue = e.target.value;
             setCity(inputValue);
             handleSearch(inputValue);
+            fetchSuggestedLocations(inputValue);
           }}
         />
         {isFocused && (
           <>
-            <span>Cancel</span>
+            <span onMouseDown={clearSearch}>Cancel</span>
             <div className="search-results-overlay"></div>
           </>
         )}
