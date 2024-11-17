@@ -19,32 +19,45 @@ import { useState } from "react";
 
 export default function SearchBar({ addIsSearching, clearIsSearching }) {
   const [city, setCity] = useState("");
+  const [isFocused, setFocused] = useState(false);
 
   const handleSearch = (inputValue) => {
-    console.log(inputValue);
+    inputValue.length > 0 ? addIsSearching() : clearIsSearching();
+  };
 
-    if (inputValue.length >= 1) {
-      addIsSearching();
-    } else {
-      clearIsSearching();
-    }
+  const handleFocus = () => {
+    setFocused(true);
+  };
+
+  const handleBlur = () => {
+    setFocused(false);
   };
 
   return (
-    <>
-      <h2 className="search-page-title">Weather</h2>
-      <input
-        type="search"
-        placeholder="Search for a city or airport"
-        name="Search"
-        id="search-bar"
-        value={city}
-        onChange={(e) => {
-          const inputValue = e.target.value;
-          setCity(inputValue);
-          handleSearch(inputValue);
-        }}
-      />
-    </>
+    <div className="search-bar-container">
+      {!isFocused && <h2 className="search-page-title">Weather</h2>}
+      <div className="search-input-wrapper">
+        <input
+          type="search"
+          placeholder="Search for a city or airport"
+          name="Search"
+          id="search-bar"
+          value={city}
+          onFocus={handleFocus}
+          onBlur={handleBlur}
+          onChange={(e) => {
+            const inputValue = e.target.value;
+            setCity(inputValue);
+            handleSearch(inputValue);
+          }}
+        />
+        {isFocused && (
+          <>
+            <span>Cancel</span>
+            <div className="search-results-overlay"></div>
+          </>
+        )}
+      </div>
+    </div>
   );
 }
