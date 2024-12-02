@@ -1,30 +1,31 @@
 import { useEffect, useState } from "react";
 import {
-  getCurrentWeatherData,
-  CurrentWeatherData,
+  CurrentWeatherData, getCurrentWeatherData,
 } from "../data/currentWeatherData";
 import StatusBar from "./StatusBar";
+import { useLocation } from "react-router-dom";
 
 export default function HomepageHeader() {
   const [weatherData, setWeatherData] = useState<CurrentWeatherData | null>(
     null
   );
 
-  //TODO: make the city variable dynamic
-  const city = "Leicester";
+  const location = useLocation();
+  const city = location.state?.city  ?? "Leicester";
 
   useEffect(() => {
-    async function fetchWeatherData() {
+    async function getWeatherData() {
+
       try {
-        const fetchedData = await getCurrentWeatherData();
+        const fetchedData = await getCurrentWeatherData(city);
         setWeatherData(fetchedData);
-      } catch {
-        Error("Weather request failed");
+      } catch (error) {
+        console.error("Weather request failed", error);
       }
     }
 
-    fetchWeatherData();
-  }, []);
+    getWeatherData();
+  }, [city]);
 
   return (
     <>

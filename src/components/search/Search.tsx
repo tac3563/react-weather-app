@@ -1,8 +1,8 @@
 import { useState } from "react";
-import SearchBar from "./SearchBar";
-import SearchLocations from "./SearchLocations";
-import SearchResults from "./SearchResults";
-import StatusBar from "./StatusBar";
+import SearchBar from "./SearchBar.tsx";
+import SearchLocations from "./SearchLocations.tsx";
+import SearchResults from "./SearchResults.tsx";
+import StatusBar from "../StatusBar.tsx";
 
 export default function Search() {
   const [isSearching, setIsSearching] = useState(false);

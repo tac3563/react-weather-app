@@ -33,11 +33,10 @@ export default function SearchBar({
 
     try {
       const response = await fetch(
-        `http://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=${limit}&appid=${weatherApiKey}`
+        `https://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=${limit}&appid=${weatherApiKey}`
       );
       const data = await response.json();
       setSuggestedLocations(data);
-      console.log(data);
       return data;
     } catch (error) {
       console.error("Error fetching suggested locations:", error);

@@ -1,6 +1,6 @@
 import Home from "./Home";
 import WeatherDetails from "./WeatherDetails";
-import Search from "./Search";
+import Search from "./search/Search.tsx";
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 
 function App() {

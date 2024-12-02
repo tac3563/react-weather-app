@@ -1,4 +1,4 @@
-import { fetchWeatherData } from "./weatherApi";
+import {fetchWeatherData} from "./weatherApi";
 
 export interface CurrentWeatherData {
   currentTempC: number;
@@ -9,10 +9,10 @@ export interface CurrentWeatherData {
   conditions: string;
 }
 
-export async function getCurrentWeatherData(): Promise<CurrentWeatherData> {
-  const data = await fetchWeatherData();
+export async function getCurrentWeatherData(city): Promise<CurrentWeatherData> {
+  const data = await fetchWeatherData(city);
 
-  const currentWeatherData: CurrentWeatherData = {
+  return {
     currentTempC: data.current.temp_c,
     minTempC: data.forecast.forecastday[0].day.mintemp_c,
     maxTempC: data.forecast.forecastday[0].day.maxtemp_c,
@@ -20,8 +20,6 @@ export async function getCurrentWeatherData(): Promise<CurrentWeatherData> {
     rainfall: data.forecast.forecastday[0].day.totalprecip_mm,
     conditions: data.current.condition.text,
   };
-
-  return currentWeatherData;
 }
 
 getCurrentWeatherData();

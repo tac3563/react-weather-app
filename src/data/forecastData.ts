@@ -12,8 +12,8 @@ export interface ForecastWeekData {
   forecastDayIcon: string;
 }
 
-export async function getWeeklyWeatherData(): Promise<ForecastWeekData[]> {
-  const data = await fetchWeatherData();
+export async function getWeeklyWeatherData(city): Promise<ForecastWeekData[]> {
+  const data = await fetchWeatherData(city);
   const forecastWeekData = data.forecast.forecastday;
 
   const weeklyData = forecastWeekData.map((day) => {
@@ -39,8 +39,8 @@ export async function getWeeklyWeatherData(): Promise<ForecastWeekData[]> {
 }
 
 // Hourly Weather:
-export async function getHourlyWeatherData(): Promise<ForecastDayData[]> {
-  const data = await fetchWeatherData();
+export async function getHourlyWeatherData(city): Promise<ForecastDayData[]> {
+  const data = await fetchWeatherData(city);
 
   const forecastHourlyData = data.forecast.forecastday[0].hour;
 
