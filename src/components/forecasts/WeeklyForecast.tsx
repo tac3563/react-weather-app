@@ -1,22 +1,24 @@
 import { useEffect, useState } from "react";
-import { getWeeklyWeatherData, ForecastWeekData } from "./../data/forecastData";
+import { getWeeklyWeatherData, ForecastWeekData } from "../../data/forecastData.ts";
+import {HomeProps} from "../Home.tsx";
 
-export default function WeeklyForecast() {
+
+export default function WeeklyForecast({city}: HomeProps) {
   const [weeklyForecast, setWeeklyForecast] = useState<
     ForecastWeekData[] | null
   >(null);
 
   useEffect(() => {
-    async function fetchWeatherData() {
+    async function fetchWeatherData(city: string) {
       try {
-        const fetchedWeeklyWeatherData = await getWeeklyWeatherData();
+        const fetchedWeeklyWeatherData = await getWeeklyWeatherData(city);
         setWeeklyForecast(fetchedWeeklyWeatherData);
       } catch {
         Error("Weather request failed");
       }
     }
 
-    fetchWeatherData();
+    fetchWeatherData(city);
   }, []);
 
   return (

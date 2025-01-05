@@ -9,7 +9,7 @@ export interface CurrentWeatherData {
   conditions: string;
 }
 
-export async function getCurrentWeatherData(city): Promise<CurrentWeatherData> {
+export async function getCurrentWeatherData(city: string): Promise<CurrentWeatherData> {
   const data = await fetchWeatherData(city);
 
   return {
@@ -21,5 +21,3 @@ export async function getCurrentWeatherData(city): Promise<CurrentWeatherData> {
     conditions: data.current.condition.text,
   };
 }
-
-getCurrentWeatherData();

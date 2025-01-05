@@ -1,12 +1,11 @@
 import {useNavigate} from "react-router-dom";
 
 
-export default function SearchLocations({ suggestedLocations }) {
-
+export default function SearchLocations({ suggestedLocations }: { suggestedLocations: { name: string, state?: string, country: string }[] }) {
 
     const navigate = useNavigate();
 
-    function handleClick(location) {
+    function handleClick(location: { name: string, state?: string, country: string }) {
         navigate('/', { state: { city: location.name } });
     }
 

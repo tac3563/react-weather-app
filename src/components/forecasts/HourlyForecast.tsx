@@ -1,26 +1,29 @@
 import { useEffect, useState } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
-import { getHourlyWeatherData, ForecastDayData } from "./../data/forecastData";
+import { getHourlyWeatherData, ForecastDayData } from "../../data/forecastData.ts";
+import {HomeProps} from "../Home.tsx";
 
-export default function HourlyForecast() {
+
+export default function HourlyForecast({city}: HomeProps) {
   const [hourlyForecast, setHourlyForecast] = useState<
     ForecastDayData[] | null
   >(null);
 
   gsap.registerPlugin(useGSAP);
 
+
   useEffect(() => {
-    async function fetchWeatherData() {
+    async function fetchWeatherData(city: string) {
       try {
-        const fetchedHourlyWeatherData = await getHourlyWeatherData();
+        const fetchedHourlyWeatherData = await getHourlyWeatherData(city);
         setHourlyForecast(fetchedHourlyWeatherData);
       } catch {
         Error("Weather request failed");
       }
     }
 
-    fetchWeatherData();
+    fetchWeatherData(city);
   }, []);
 
   let initialTime = new Date().toLocaleTimeString([], {
@@ -47,7 +50,7 @@ export default function HourlyForecast() {
               id={`day-${index}`}
             />
             <p className="forecast-hour-max-temp" id={`day-${index}`}>
-              {Math.round(day.tempC)}
+              {Math.round(day.temp_c)}
               <span>&deg;</span>
             </p>
           </li>

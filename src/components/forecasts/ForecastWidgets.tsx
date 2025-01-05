@@ -1,8 +1,9 @@
-import TabBar from "./NavBar";
-import WeeklyForecast from "./WeeklyForecast";
-import HourlyForecast from "./HourlyForecast";
+import TabBar from "../NavBar.tsx";
+import WeeklyForecast from "./WeeklyForecast.tsx";
+import HourlyForecast from "./HourlyForecast.tsx";
+import {HomeProps} from "../Home.tsx";
 
-export default function ForecastWidgets() {
+export default function ForecastWidgets({city}: HomeProps) {
   return (
     <>
       <div className="modal-container">
@@ -12,7 +13,7 @@ export default function ForecastWidgets() {
               Cloudy conditions from 1AM-9AM, with showers expected at 9AM.
             </p>
             <hr />
-            <HourlyForecast />
+            <HourlyForecast city={city} />
           </div>
           <div className="weekly-forecast-widget">
             <p className="weekly-forecast-title">
@@ -33,7 +34,7 @@ export default function ForecastWidgets() {
               10-Day-Forecast
             </p>
             <hr />
-            <WeeklyForecast />
+            <WeeklyForecast city={city} />
           </div>
         </div>
       </div>

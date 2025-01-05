@@ -3,19 +3,15 @@ import {
   CurrentWeatherData, getCurrentWeatherData,
 } from "../data/currentWeatherData";
 import StatusBar from "./StatusBar";
-import { useLocation } from "react-router-dom";
+import {HomeProps} from "./Home.tsx";
 
-export default function HomepageHeader() {
+export default function HomepageHeader({city}: HomeProps): JSX.Element {
   const [weatherData, setWeatherData] = useState<CurrentWeatherData | null>(
     null
   );
 
-  const location = useLocation();
-  const city = location.state?.city  ?? "Leicester";
-
   useEffect(() => {
-    async function getWeatherData() {
-
+    async function getWeatherData(city: string) {
       try {
         const fetchedData = await getCurrentWeatherData(city);
         setWeatherData(fetchedData);
@@ -24,7 +20,7 @@ export default function HomepageHeader() {
       }
     }
 
-    getWeatherData();
+    getWeatherData(city);
   }, [city]);
 
   return (
